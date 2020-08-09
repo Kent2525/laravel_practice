@@ -20,12 +20,15 @@ class NewsController extends Controller
 
       // formに画像があれば、保存する
       if (isset($form['image'])) {
+        // public/imageに画像を保存する（ローカル環境）
         $path = $request->file('image')->store('public/image');
+        // 画像の名前をbasename(省略形)で保存する
         $news->image_path = basename($path);
       } else {
           $news->image_path = null;
       }
 
+      // データベースに必要のないtokenとimage画像自体を削除する
       unset($form['_token']);
       unset($form['image']);
       // データベースに保存する
@@ -76,10 +79,20 @@ class NewsController extends Controller
         unset($news_form['remove']);
       }
       unset($news_form['_token']);
+      unset($news_form['image']);
       // 該当するデータを上書きして保存する
       $news->fill($news_form)->save();
 
       return redirect('admin/news');
+  }
+  
+  public function delete(Request $request)
+  {
+      // 該当するNews Modelを取得
+      $news = News::find($request->id);
+      // 削除する
+      $news->delete();
+      return redirect('admin/news/');
   }
   
 }

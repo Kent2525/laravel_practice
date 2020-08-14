@@ -51,25 +51,20 @@
             </div>
           </div>
         </form>
-        <div class="row mt-5">
-          <div 
-        </div>
+        <!--<div class="row mt-5">-->
+        <!--  <div class="col-md-4 mx-auto">-->
+        <!--    <h2>編集履歴</h2>-->
+        <!--    <ul class="list-group">-->
+        <!--      @if ($news_form->histories !=NULL)-->
+        <!--        @foreach ($news_form->histories as $history)-->
+        <!--          <li class="list-group-item">{{ $history->edited_at }}</li>-->
+        <!--        @endforeach-->
+        <!--      @endif-->
+        <!--    </ul>-->
+        <!--  </div>-->
+        <!--</div>-->
       </div>
     </div>
   </div>
 @endsection
 
-
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--  <head>-->
-<!--    <meta charset="utf-8">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-<!--    <meta name="viewport" content="width=device-width,initial-scale=1"> -->
-
-<!--    <title>My News</title>-->
-<!--  </head>-->
-<!--  <body>-->
-<!--    <h1>Profile編集画面</h1>-->
-<!--  </body>-->
-<!--</html>-->

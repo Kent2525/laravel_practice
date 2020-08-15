@@ -19,7 +19,6 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('news/create', 'Admin\NewsController@add');
 });
 
-// PHP/Laravel 09 課題 4
 // Middlewareとはログインしていない状態で入った場合に、ログインを求める機能
 Route::group(['prefix' => 'admin'], function() {
     Route::post('news/create', 'Admin\NewsController@create')->middleware('auth');
@@ -37,5 +36,7 @@ Route::group(['prefix' => 'admin'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/', 'NewsController@index');
+// テキスト19課題2
+Route::get('/profile', 'ProfileController@index');
 
